@@ -551,7 +551,7 @@ const Dashbord = (props) => {
                                     })
                                 }
                             </div>
-                            <div className=" px-4 pb-4 xl:px-7 xl:pb-7">
+                            <div className="sticky px-4 pb-4 xl:px-7 xl:pb-7">
                                 <div className="relative">
                                     {
                                         selectedImage && (
