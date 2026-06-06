@@ -195,43 +195,43 @@ const page = ({ params }) => {
         console.log("Small clicked")
     }
 
-    useEffect(() => {
+   useEffect(() => {
 
-        const handleReceiveMessage = (newMessage) => {
+    const handleReceiveMessage = (newMessage) => {
 
-            console.log(
-                "Received:",
+        console.log(
+            "Received:",
+            newMessage
+        );
+
+        if (
+            newMessage.senderId === selectedChatpartner
+        ) {
+
+            setChatMessages(prev => [
+                ...prev,
                 newMessage
-            );
+            ]);
 
-            if (
-                newMessage.senderId === selectedChatpartner
-            ) {
+        }
 
-                setChatMessages(prev => [
-                    ...prev,
-                    newMessage
-                ]);
+    };
 
-            }
+    socket.on(
+        "receiveMessage",
+        handleReceiveMessage
+    );
 
-        };
+    return () => {
 
-        socket.on(
+        socket.off(
             "receiveMessage",
             handleReceiveMessage
         );
 
-        return () => {
+    };
 
-            socket.off(
-                "receiveMessage",
-                handleReceiveMessage
-            );
-
-        };
-
-    }, [selectedChatpartner]);
+}, [selectedChatpartner]);
 
     const handleSentClick = async (id) => {
         console.log("id: ", id)
@@ -322,7 +322,7 @@ const page = ({ params }) => {
 
     return (
         <>
-            <div className="w-screen min-h-screen  overscroll-none overflow-hidden scroll-none flex flex-col justify-between   bg-linear-to-br from-slate-950/50 via-slate-950/30 to-blue-950/20">
+            <div style={{ height: '100dvh' }} className="w-screen  overscroll-none overflow-hidden scroll-none flex flex-col justify-between   bg-linear-to-br from-slate-950/50 via-slate-950/30 to-blue-950/20">
 
                 <div className='w-full sticky top-0 flex justify-start gap-3 items-center p-5 h-20 bg-slate-900/70 backdrop-blur-xl  border-slate-800'>
                     <button
@@ -420,11 +420,7 @@ const page = ({ params }) => {
                         })
                     }
                 </div>
-                <div className="fixed
-                            bottom-0
-                            left-0
-                            right-0
-                            z-20 px-4 pb-4 xl:px-7 xl:pb-7">
+                <div className="sticky bottom-0 px-4 pb-4 xl:px-7 xl:pb-7" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
                     <div className="relative">
                         {
                             selectedImage && (

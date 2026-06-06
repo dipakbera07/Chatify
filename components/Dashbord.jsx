@@ -324,7 +324,7 @@ const Dashbord = (props) => {
 
 
     return (
-        <div className="min-h-screen  w-screen flex overscroll-none overflow-hidden scroll-none">
+        <div className=" w-screen flex overscroll-none overflow-hidden scroll-none" style={{ height: '100dvh' }}>
 
             {/* ------- Left side ------- */}
             <div className='w-screen sm:w-[35%] xl:w-[30%] flex flex-col h-full bg-slate-900/70 backdrop-blur-xl border-r border-slate-800'>
@@ -457,7 +457,7 @@ const Dashbord = (props) => {
                     </> :
                     <>
                         <div className="w-0 hidden sm:w-[70%] h-full sm:flex sm:flex-col justify-between   bg-linear-to-br from-slate-950/50 via-slate-950/30 to-blue-950/20">
-                            <div className='w-full flex justify-between items-center p-5 h-20 bg-slate-900/70 backdrop-blur-xl  border-slate-800'>
+                            <div className='w-full flex justify-between items-center p-5  bg-slate-900/70 backdrop-blur-xl  border-slate-800'>
                                 <div className='flex gap-3 items-center'>
                                     <div className="h-11 w-11 xl:h-12 xl:w-12 rounded-full flex flex-col relative">
                                         <img src={chatPartnerPic || "/sample.avif"} className="rounded-full h-full w-full object-cover" alt="" />
@@ -551,11 +551,7 @@ const Dashbord = (props) => {
                                     })
                                 }
                             </div>
-                            <div className="fixed
-                            bottom-0
-                            left-0
-                            right-0
-                            z-20  px-4 pb-4 xl:px-7 xl:pb-7">
+                            <div className="sticky bottom-0 px-4 pb-4 xl:px-7 xl:pb-7" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
                                 <div className="relative">
                                     {
                                         selectedImage && (
