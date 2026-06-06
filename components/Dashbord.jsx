@@ -324,7 +324,7 @@ const Dashbord = (props) => {
 
 
     return (
-        <div className="min-h-dvh  w-screen flex overscroll-none overflow-hidden scroll-none">
+        <div className="min-h-screen  w-screen flex overscroll-none overflow-hidden scroll-none">
 
             {/* ------- Left side ------- */}
             <div className='w-screen sm:w-[35%] xl:w-[30%] flex flex-col h-full bg-slate-900/70 backdrop-blur-xl border-r border-slate-800'>
@@ -551,7 +551,11 @@ const Dashbord = (props) => {
                                     })
                                 }
                             </div>
-                            <div className="sticky bottom-0 px-4 pb-4 xl:px-7 xl:pb-7">
+                            <div className="fixed
+                            bottom-0
+                            left-0
+                            right-0
+                            z-20  px-4 pb-4 xl:px-7 xl:pb-7">
                                 <div className="relative">
                                     {
                                         selectedImage && (
