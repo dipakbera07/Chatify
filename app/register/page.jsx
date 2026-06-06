@@ -174,18 +174,18 @@ const page = () => {
                 <ArrowLeft className="h-5 w-5" />
             </button>
 
-            <div className="w-full  py-15 max-w-4xl flex flex-col justify-center items-center  bg-white/5 backdrop-blur-2xl  border-white/10 border-[0.5px] rounded-[10px]">
+            <div className="w-full   py-15 max-w-4xl flex flex-col justify-center items-center  md:bg-white/5 md:backdrop-blur-2xl  md:border-white/10 md:border-[0.5px] md:rounded-[10px]">
                 <h1 className='text-3xl font-bold text-center mb-3'>Register in Chatify</h1>
                 <div className='flex justify-center items-center w-full gap-5 flex-col sm:flex-row'>
                     <div className='w-full max-w-sm'>
 
-                        <CardContent >
+                        <CardContent  >
                             <form onSubmit={handleSubmit}>
                                 <div className="flex flex-col gap-4 w-full">
                                     {
-                                    (window.innerWidth < 640) &&
+                                    (window.innerWidth < 768) &&
                                     <>
-                                        <div className='w-full max-w-sm  flex justify-center items-center'>
+                                        <div className='w-full  max-w-sm  flex md:hidden justify-center items-center'>
                                             {
                                                 selectedImage ?
                                                     <>
@@ -299,7 +299,7 @@ const page = () => {
 
                     </div>
 
-                    <div className='w-full max-w-sm hidden sm:flex'>
+                    <div className='w-full max-w-sm hidden md:flex'>
                         {
                             selectedImage ?
                                 <>

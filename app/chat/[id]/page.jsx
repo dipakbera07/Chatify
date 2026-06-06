@@ -322,7 +322,7 @@ const page = ({ params }) => {
 
     return (
         <>
-            <div className="w-screen h-screen overscroll-none overflow-hidden scroll-none flex flex-col justify-between   bg-linear-to-br from-slate-950/50 via-slate-950/30 to-blue-950/20">
+            <div className="w-screen min-h-dvh  overscroll-none overflow-hidden scroll-none flex flex-col justify-between   bg-linear-to-br from-slate-950/50 via-slate-950/30 to-blue-950/20">
 
                 <div className='w-full sticky top-0 flex justify-start gap-3 items-center p-5 h-20 bg-slate-900/70 backdrop-blur-xl  border-slate-800'>
                     <button
