@@ -2,10 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import {
-    useSearchParams
-} from "next/navigation"
-import { Toaster } from "@/components/ui/sonner"
-import {
     Card,
     CardAction,
     CardContent,
@@ -28,11 +24,19 @@ const page = () => {
     const [verifyCode, setverifyCode] = useState("")
     const [verifying, setVerifying] = useState(false)
 
-    const searchParams =
-        useSearchParams()
+    const [email, setEmail] = useState("")
 
-    const email =
-        searchParams.get("email")
+    useEffect(() => {
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    setEmail(
+        params.get("email") || ""
+    );
+
+}, []);
 
     useEffect(() => {
         if (status === "authenticated") {
@@ -85,8 +89,12 @@ const page = () => {
             }
             
         } catch (error) {
-            setError("Something went Wrong")
-            console.log(data)
+            
+            console.log(error);
+
+    toast.error(
+        "Something went wrong"
+    );
         }finally{
              setVerifying(false)
         }
@@ -95,7 +103,6 @@ const page = () => {
 
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
         <div className='flex justify-center items-center min-h-screen w-screen bg-linear-to-br from-black via-slate-950 to-blue-950'>
             <div className='w-full max-w-sm'>
                 <h1 className='text-3xl font-bold text-center mb-3'>Verify you Account</h1>
@@ -135,7 +142,6 @@ const page = () => {
                 </Card>
             </div>
         </div>
-        </Suspense>
     )
 
 
