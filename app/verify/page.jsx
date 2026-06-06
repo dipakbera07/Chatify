@@ -95,6 +95,7 @@ const page = () => {
 
 
     return (
+        <Suspense fallback={<div>Loading...</div>}>
         <div className='flex justify-center items-center min-h-screen w-screen bg-linear-to-br from-black via-slate-950 to-blue-950'>
             <div className='w-full max-w-sm'>
                 <h1 className='text-3xl font-bold text-center mb-3'>Verify you Account</h1>
@@ -134,6 +135,7 @@ const page = () => {
                 </Card>
             </div>
         </div>
+        </Suspense>
     )
 
 
