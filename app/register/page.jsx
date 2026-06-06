@@ -90,7 +90,7 @@ const page = () => {
                     name,
                     email,
                     password,
-                    image:selectedImage
+                    image: selectedImage
                 })
             })
             const data = await res.json()
@@ -168,20 +168,71 @@ const page = () => {
     return (
         <div className='flex overscroll-none overflow-hidden scroll-none justify-center items-center min-h-screen w-screen bg-linear-to-br from-black via-slate-950 to-blue-950'>
             <button
-      onClick={() => router.back()}
-      className="fixed top-4 left-4 p-2 rounded-full bg-slate-800 hover:bg-slate-700 cursor-pointer"
-    >
-      <ArrowLeft className="h-5 w-5" />
-    </button>
+                onClick={() => router.back()}
+                className="fixed top-4 left-4 p-2 rounded-full bg-slate-800 hover:bg-slate-700 cursor-pointer z-10"
+            >
+                <ArrowLeft className="h-5 w-5" />
+            </button>
 
             <div className="w-full  py-15 max-w-4xl flex flex-col justify-center items-center  bg-white/5 backdrop-blur-2xl  border-white/10 border-[0.5px] rounded-[10px]">
                 <h1 className='text-3xl font-bold text-center mb-3'>Register in Chatify</h1>
-                <div className='flex justify-center items-center w-full gap-5'>
+                <div className='flex justify-center items-center w-full gap-5 flex-col sm:flex-row'>
                     <div className='w-full max-w-sm'>
 
                         <CardContent >
                             <form onSubmit={handleSubmit}>
-                                <div className="flex flex-col gap-4">
+                                <div className="flex flex-col gap-4 w-full">
+                                    {
+                                    (window.innerWidth < 640) &&
+                                    <>
+                                        <div className='w-full max-w-sm  flex justify-center items-center'>
+                                            {
+                                                selectedImage ?
+                                                    <>
+                                                        <div className="w-full  max-w-3xl max-h-3xl flex flex-col mt-5 gap-3 justify-center items-center relative">
+                                                            <div className='flex justify-center items-center'>
+                                                                <img
+                                                                    src={selectedImage}
+                                                                    alt="preview"
+                                                                    className="w-[60%] h-[60%] object-cover rounded-full"
+                                                                />
+
+                                                                <button
+                                                                    onClick={() => setSelectedImage(null)}
+                                                                    className=" absolute top-1 right-1 bg-blue-500 h-6 w-6 rounded-full text-white cursor-pointer flex justify-center items-center"
+                                                                >
+                                                                    ×
+                                                                </button>
+                                                            </div>
+                                                            {
+                                                                imageLoading &&
+                                                                <>
+                                                                    <Loader2 className="h-6 w-6 animate-spin text-slate-400" />
+                                                                </>
+                                                            }
+
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <div className="w-full  max-w-3xl max-h-3xl mt-5 flex flex-col gap-3 justify-center items-center relative">
+                                                            <div className='flex justify-center items-center'>
+                                                                <img
+                                                                    src="./sample.avif"
+                                                                    alt="preview"
+                                                                    className="w-[60%] h-[60%] object-cover rounded-full"
+                                                                />
+
+
+                                                            </div>
+
+                                                        </div>
+                                                    </>
+                                            }
+                                        </div>
+
+                                    </>
+                                }
                                     <div className="grid gap-1">
                                         <Label className='text-md' htmlFor="email">Name</Label>
                                         <Input
@@ -210,7 +261,7 @@ const page = () => {
                                     <div className="grid gap-1 ">
                                         <div className="flex items-center">
                                             <Label className='text-md' htmlFor="password">Password</Label>
-                                           
+
                                         </div>
                                         <Input
                                             className="h-9 rounded-md"
@@ -221,18 +272,20 @@ const page = () => {
                                             required />
                                     </div>
                                     <Field className="gap-1">
-                                            <FieldLabel
-                                                htmlFor="picture"
-                                                className="text-md"
-                                            >Profile Picture</FieldLabel>
-                                            <Input
-                                                className="h-9 rounded-md cursor-pointer"
-                                                accept="image/*"
-                                                onChange={handleImageChange}
-                                                id="picture" type="file"
-                                            />
-                                        </Field>
+                                        <FieldLabel
+                                            htmlFor="picture"
+                                            className="text-md"
+                                        >Profile Picture</FieldLabel>
+                                        <Input
+                                            className="h-9 rounded-md cursor-pointer"
+                                            accept="image/*"
+                                            onChange={handleImageChange}
+                                            id="picture" type="file"
+                                        />
+                                    </Field>
                                 </div>
+
+                                
 
 
                                 <Button disabled={submitting} type="submit" className="cursor-pointer w-full mt-4 h-9 rounded-md">
@@ -246,7 +299,7 @@ const page = () => {
 
                     </div>
 
-                    <div className='w-full max-w-sm'>
+                    <div className='w-full max-w-sm hidden sm:flex'>
                         {
                             selectedImage ?
                                 <>
@@ -267,16 +320,16 @@ const page = () => {
                                         </div>
                                         {
                                             imageLoading &&
-                                                <>
-                                                    <Loader2 className="h-6 w-6 animate-spin text-slate-400" />
-                                                </> 
+                                            <>
+                                                <Loader2 className="h-6 w-6 animate-spin text-slate-400" />
+                                            </>
                                         }
 
                                     </div>
                                 </>
                                 :
                                 <>
-                                     <div className="w-full  max-w-3xl max-h-3xl p-4 mt-3 flex flex-col gap-3 justify-center items-center relative">
+                                    <div className="w-full  max-w-3xl max-h-3xl p-4 mt-3 flex flex-col gap-3 justify-center items-center relative">
                                         <div >
                                             <img
                                                 src="./sample.avif"
@@ -284,9 +337,9 @@ const page = () => {
                                                 className="w-full h-full object-cover rounded-lg"
                                             />
 
-                                            
+
                                         </div>
-                                        
+
                                     </div>
                                 </>
                         }

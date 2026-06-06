@@ -89,7 +89,7 @@ const page = () => {
     <div className='flex justify-center overscroll-none overflow-hidden scroll-none items-center min-h-screen w-screen bg-linear-to-br from-black via-slate-950 to-blue-950'>
       <button
             onClick={() => router.back()}
-            className="fixed top-4 left-4 p-2 rounded-full bg-slate-800 hover:bg-slate-700 cursor-pointer"
+            className="fixed top-4 left-4 p-2 rounded-full bg-slate-800 hover:bg-slate-700 cursor-pointer z-10"
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
