@@ -324,7 +324,7 @@ const page = ({ params }) => {
         <>
             <div style={{ height: '100dvh' }} className="w-screen  overscroll-none overflow-hidden scroll-none flex flex-col justify-between   bg-linear-to-br from-slate-950/50 via-slate-950/30 to-blue-950/20">
 
-                <div className='w-full sticky top-0 flex justify-start gap-3 items-center p-5 h-20 bg-slate-900/70 backdrop-blur-xl  border-slate-800'>
+                <div className='w-full shrink-0 flex justify-start gap-3 items-center p-5 h-20 bg-slate-900/70 backdrop-blur-xl  border-slate-800'>
                     <button
                         onClick={() => router.back()}
                         className=" p-2 rounded-full  hover:bg-slate-700 cursor-pointer"
@@ -346,7 +346,7 @@ const page = ({ params }) => {
 
                 <div
                     ref={chatContainerRef}
-                    className="flex-1 overflow-y-auto flex flex-col  chat-scroll px-4 pt-4 xl:px-7 xl:pt-7 scroll-smooth">
+                    className="flex-1 min-h-0 overflow-y-auto flex flex-col  chat-scroll px-4 pt-4 xl:px-7 xl:pt-7 scroll-smooth">
                     {
                         chatMessages?.map((message, index) => {
                             const currentDate = formatDate(message.createdAt);
@@ -420,7 +420,7 @@ const page = ({ params }) => {
                         })
                     }
                 </div>
-                <div className="sticky bottom-0 px-4 pb-4 xl:px-7 xl:pb-7" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
+                <div className="shrink-0 px-4 pb-4 xl:px-7 xl:pb-7" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
                     <div className="relative">
                         {
                             selectedImage && (
