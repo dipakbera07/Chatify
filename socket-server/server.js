@@ -1,8 +1,13 @@
+import { createServer } from "http";
 import { Server } from "socket.io";
 
-const io = new Server(5001, {
+const PORT = process.env.PORT || 5001;
+
+const httpServer = createServer();
+
+const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "*",
     },
 });
 
@@ -18,13 +23,12 @@ io.on("connection", (socket) => {
 
     });
 
-    // NEW
     socket.on("sendMessage", (message) => {
 
         console.log("Message Received:", message);
 
         io.to(message.receiverId)
-          .emit("receiveMessage", message);
+            .emit("receiveMessage", message);
 
     });
 
@@ -36,4 +40,6 @@ io.on("connection", (socket) => {
 
 });
 
-console.log("Socket server running on port 5001");
+httpServer.listen(PORT, () => {
+    console.log(`Socket server running on port ${PORT}`);
+});
