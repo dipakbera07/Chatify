@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chatify 💬
 
-## Getting Started
+**Chatify** is a full-stack, real-time messaging platform where users can create an account, verify their email, and start chatting with other users.
 
-First, run the development server:
+The platform includes a dedicated **contacts section and chat section**, real-time messaging, and image sharing for a smooth communication experience.
+
+## 🌐 Live Demo
+
+**[Chatify — Live Website](https://dipak-chatify.vercel.app/)**
+
+## ✨ Features
+
+* 🔐 User registration & authentication
+* 📧 Email verification
+* 💬 Real-time messaging
+* 👥 Contacts management
+* 🖼️ Image sharing
+* ⚡ Live chat using Socket.IO
+* 🛡️ Rate limiting & bot protection
+* 🔒 Secure password handling
+* 📱 Responsive chat interface
+* 🤖 AI integration
+* 🔔 Toast notifications
+
+## 🛠️ Tech Stack
+
+* **Next.js 16 & React 19** – Full-stack web application
+* **MongoDB + Mongoose** – Database
+* **NextAuth.js** – Authentication & sessions
+* **Socket.IO** – Real-time communication
+* **Cloudinary** – Image upload & storage
+* **Resend** – Email verification
+* **Arcjet** – Security, rate limiting & bot protection
+* **OpenAI AI SDK** – AI integration
+* **Tailwind CSS & DaisyUI** – Styling & UI
+* **Shadcn UI / Radix UI** – UI components
+* **Lucide React** – Icons
+* **React Email** – Email templates
+* **Sonner** – Notifications
+* **bcryptjs** – Password hashing
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/dipakbera07/chatify.git
+cd chatify
+npm install
+```
+
+### 2. Environment Variables
+
+Create a `.env.local` file:
+
+```env
+MONGODB_URI=Enter_your_MongoDB_URL
+NEXTAUTH_SECRET=Enter_your_NextAuth_Secret
+
+RESEND_API_KEY=Enter_your_Resend_API_Key
+
+ARCJET_KEY=Enter_your_Arcjet_Key
+ARCJET_ENV=development
+
+EMAIL_USER=Enter_your_Email
+EMAIL_PASS=Enter_your_Email_App_Password
+
+CLOUDINARY_CLOUD_NAME=Enter_your_Cloudinary_Cloud_Name
+CLOUDINARY_API_KEY=Enter_your_Cloudinary_API_Key
+CLOUDINARY_API_SECRET=Enter_your_Cloudinary_API_Secret
+
+NEXT_PUBLIC_SOCKET_URL=Enter_your_Socket_Server_URL
+```
+
+Add your own MongoDB, Resend, Arcjet, Cloudinary, email, and Socket.IO credentials.
+
+> ⚠️ Never commit `.env.local` or any API keys, passwords, or secrets to GitHub.
+
+### 3. Run the Project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **http://localhost:3000** in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🎯 Purpose
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Built as an advanced full-stack project to practice **real-time communication, authentication, email verification, image uploads, security, database integration, and modern web development**.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Developed by Dipak Bera**
